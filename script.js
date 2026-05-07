@@ -1,13 +1,13 @@
 const products = [
-  { id: 1, name: "Astral Drake", category: "single", rarity: "Legendary", price: 129.90, condition: "Mint", set: "Celestial Rift", symbol: "✦", color: "violet", description: "Eine auffällige Foil Chase Card mit starkem Sammlerfokus und Premium Präsentation." },
-  { id: 2, name: "Volt Sprite", category: "single", rarity: "Rare", price: 18.50, condition: "Near Mint", set: "Storm Circuit", symbol: "⚡", color: "cyan", description: "Schnelle Rare Single für Spieler, die ein dynamisches Elektro Thema mögen." },
-  { id: 3, name: "Ember Kitsune", category: "single", rarity: "Ultra Rare", price: 44.90, condition: "Mint", set: "Crimson Pact", symbol: "🔥", color: "pink", description: "Ultra Rare Karte mit warmem Foil Look und hoher Display Wirkung." },
-  { id: 4, name: "Nebula Booster", category: "sealed", rarity: "Sealed", price: 5.90, condition: "Factory Sealed", set: "Celestial Rift", symbol: "★", color: "violet", description: "Einzelner Booster Pack für neue Pulls, Draft Abende und spontane Sammler Momente." },
-  { id: 5, name: "Nebula Vault Box", category: "sealed", rarity: "Sealed", price: 119.90, condition: "Factory Sealed", set: "Celestial Rift", symbol: "▣", color: "gold", description: "Limitierte Display Box mit starkem Regalwert und Sammler Appeal." },
-  { id: 6, name: "Starter Clash Bundle", category: "bundle", rarity: "Sealed", price: 39.90, condition: "New", set: "Starter Clash", symbol: "◆", color: "green", description: "Einsteigerfreundliches Bundle mit Decks, Token Set und schneller Spielbereitschaft." },
-  { id: 7, name: "Moonlit Guardian", category: "single", rarity: "Ultra Rare", price: 59.00, condition: "Excellent", set: "Lunar Oath", symbol: "☾", color: "cyan", description: "Elegante Ultra Rare Single für Binder, Displays und thematische Decks." },
-  { id: 8, name: "Nova Sleeves", category: "accessory", rarity: "Rare", price: 9.90, condition: "New", set: "Accessories", symbol: "▥", color: "gold", description: "Premium Sleeves mit klarer Oberfläche für Turnier, Binder und Schutz." },
-  { id: 9, name: "Prism Binder", category: "accessory", rarity: "Rare", price: 24.90, condition: "New", set: "Accessories", symbol: "◇", color: "violet", description: "Stabiler Sammelordner mit hochwertigem Look für wertvolle Karten." }
+  { id: 1, name: "Astral Drake", category: "single", rarity: "Legendary", price: 129.90, condition: "Mint", set: "Celestial Rift", symbol: "✦", color: "violet", image: "assets/astral-drake.svg", description: "Eine auffällige Foil Chase Card mit starkem Sammlerfokus und Premium Präsentation." },
+  { id: 2, name: "Volt Sprite", category: "single", rarity: "Rare", price: 18.50, condition: "Near Mint", set: "Storm Circuit", symbol: "⚡", color: "cyan", image: "assets/volt-sprite.svg", description: "Schnelle Rare Single für Spieler, die ein dynamisches Elektro Thema mögen." },
+  { id: 3, name: "Ember Kitsune", category: "single", rarity: "Ultra Rare", price: 44.90, condition: "Mint", set: "Crimson Pact", symbol: "🔥", color: "pink", image: "assets/ember-kitsune.svg", description: "Ultra Rare Karte mit warmem Foil Look und hoher Display Wirkung." },
+  { id: 4, name: "Nebula Booster", category: "sealed", rarity: "Sealed", price: 5.90, condition: "Factory Sealed", set: "Celestial Rift", symbol: "★", color: "violet", image: "assets/nebula-booster.svg", description: "Einzelner Booster Pack für neue Pulls, Draft Abende und spontane Sammler Momente." },
+  { id: 5, name: "Nebula Vault Box", category: "sealed", rarity: "Sealed", price: 119.90, condition: "Factory Sealed", set: "Celestial Rift", symbol: "▣", color: "gold", image: "assets/nebula-vault-box.svg", description: "Limitierte Display Box mit starkem Regalwert und Sammler Appeal." },
+  { id: 6, name: "Starter Clash Bundle", category: "bundle", rarity: "Sealed", price: 39.90, condition: "New", set: "Starter Clash", symbol: "◆", color: "green", image: "assets/starter-clash-bundle.svg", description: "Einsteigerfreundliches Bundle mit Decks, Token Set und schneller Spielbereitschaft." },
+  { id: 7, name: "Moonlit Guardian", category: "single", rarity: "Ultra Rare", price: 59.00, condition: "Excellent", set: "Lunar Oath", symbol: "☾", color: "cyan", image: "assets/moonlit-guardian.svg", description: "Elegante Ultra Rare Single für Binder, Displays und thematische Decks." },
+  { id: 8, name: "Nova Sleeves", category: "accessory", rarity: "Rare", price: 9.90, condition: "New", set: "Accessories", symbol: "▥", color: "gold", image: "assets/nova-sleeves.svg", description: "Premium Sleeves mit klarer Oberfläche für Turnier, Binder und Schutz." },
+  { id: 9, name: "Prism Binder", category: "accessory", rarity: "Rare", price: 24.90, condition: "New", set: "Accessories", symbol: "◇", color: "violet", image: "assets/prism-binder.svg", description: "Stabiler Sammelordner mit hochwertigem Look für wertvolle Karten." }
 ];
 
 const featuredPrices = {
@@ -54,6 +54,10 @@ function productGradient(color) {
   return gradients[color] || gradients.violet;
 }
 
+function renderProductImage(product, extraClass = "") {
+  return `<div class="product-art image-art ${extraClass}" style="background:${productGradient(product.color)}"><img src="${product.image}" alt="${product.name} Artwork" loading="lazy"></div>`;
+}
+
 function getFilteredProducts() {
   const activeRarities = rarityInputs.filter(input => input.checked).map(input => input.value);
   let items = products.filter(product => {
@@ -78,7 +82,7 @@ function renderProducts() {
   productGrid.innerHTML = items.map(product => `
     <article class="product-card">
       <span class="product-badge">${product.rarity}</span>
-      <div class="product-art" data-symbol="${product.symbol}" style="background:${productGradient(product.color)}"></div>
+      ${renderProductImage(product)}
       <span class="product-meta">${product.set} • ${product.condition}</span>
       <h3>${product.name}</h3>
       <p>${product.description}</p>
@@ -131,7 +135,7 @@ function renderCart() {
 
   cartItems.innerHTML = cart.map(item => `
     <article class="cart-item">
-      <div class="cart-thumb">${item.symbol || "★"}</div>
+      <div class="cart-thumb">${item.image ? `<img src="${item.image}" alt="${item.name}">` : item.symbol || "★"}</div>
       <div><h4>${item.name}</h4><p>${formatPrice(item.price)} • ${item.rarity}</p></div>
       <div class="qty-controls">
         <button type="button" data-dec="${item.id}">−</button>
@@ -155,7 +159,7 @@ function showProductDetails(id) {
   if (!product) return;
   modalContent.innerHTML = `
     <div class="modal-content-grid">
-      <div class="product-art modal-art" data-symbol="${product.symbol}" style="background:${productGradient(product.color)}"></div>
+      ${renderProductImage(product, "modal-art")}
       <div class="modal-copy">
         <span class="eyebrow">${product.rarity}</span>
         <h2>${product.name}</h2>
