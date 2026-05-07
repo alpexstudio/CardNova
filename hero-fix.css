@@ -1,0 +1,77 @@
+/* Hero readability refinements for desktop and mobile */
+@media (min-width: 1021px) {
+  .site-shell {
+    width: min(1320px, calc(100% - 48px));
+  }
+
+  .hero {
+    grid-template-columns: minmax(620px, 1.14fr) minmax(420px, 0.86fr);
+    gap: 46px;
+    min-height: 620px;
+  }
+
+  .hero-copy {
+    max-width: 760px;
+  }
+
+  h1 {
+    max-width: 760px;
+    font-size: clamp(4.25rem, 5.25vw, 5.9rem);
+    line-height: 0.98;
+    letter-spacing: -0.055em;
+    text-wrap: balance;
+  }
+
+  .hero-copy p {
+    max-width: 640px;
+    font-size: 1.05rem;
+  }
+
+  .hero-stage {
+    min-height: 560px;
+  }
+
+  .showcase-main {
+    right: 40px;
+    top: 36px;
+    width: 335px;
+    min-height: 500px;
+  }
+
+  .showcase-side.one {
+    left: 0;
+    top: 160px;
+  }
+
+  .showcase-side.two {
+    right: 0;
+    bottom: 70px;
+  }
+}
+
+@media (min-width: 1280px) {
+  h1 {
+    font-size: clamp(4.65rem, 4.85vw, 6.05rem);
+  }
+}
+
+@media (max-width: 1020px) {
+  h1 {
+    max-width: 820px;
+    font-size: clamp(3.2rem, 9vw, 5.2rem);
+    line-height: 1;
+    text-wrap: balance;
+  }
+}
+
+@media (max-width: 680px) {
+  h1 {
+    font-size: clamp(2.7rem, 13vw, 3.8rem);
+    line-height: 1.02;
+  }
+
+  .hero-copy p {
+    font-size: 1rem;
+    line-height: 1.65;
+  }
+}
