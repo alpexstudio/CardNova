@@ -693,6 +693,39 @@ h1 {
   box-shadow: inset 0 0 28px rgba(255, 255, 255, 0.08), 0 22px 38px rgba(0, 0, 0, 0.3);
 }
 
+.image-art {
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.image-art::before {
+  display: none;
+}
+
+.image-art img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.35));
+  transform: scale(1.04);
+}
+
+.modal-art {
+  min-height: 390px;
+  height: 440px;
+}
+
+.cart-thumb {
+  overflow: hidden;
+}
+
+.cart-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .product-card h3 {
   margin: 0 0 8px;
   font-size: 1.35rem;
@@ -947,10 +980,6 @@ h1 {
   grid-template-columns: 0.9fr 1.1fr;
   gap: 28px;
   align-items: center;
-}
-
-.modal-art {
-  min-height: 390px;
 }
 
 .modal-copy h2 {
