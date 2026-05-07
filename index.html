@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CardNova Demo Store fuer Sammelkarten, Booster und TCG Produkte.">
+  <title>CardNova | Premium TCG Demo Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="site-shell">
+    <header class="topbar" id="top">
+      <a class="brand" href="#top" aria-label="CardNova Startseite">
+        <span class="brand-mark">CN</span>
+        <span><strong>CardNova</strong><small>Premium TCG Demo Store</small></span>
+      </a>
+      <nav class="nav-links" aria-label="Hauptnavigation">
+        <a href="#shop">Shop</a>
+        <a href="#drops">Drops</a>
+        <a href="#why">Vorteile</a>
+        <a href="#community">Community</a>
+      </nav>
+      <button class="cart-button" id="openCart" type="button" aria-label="Sammlung öffnen"><span>Auswahl</span><strong id="cartCount">0</strong></button>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">Verified cards, sealed drops, collector energy</span>
+          <h1>Der TCG Store für Chase Cards, Booster und Sammler mit Anspruch.</h1>
+          <p>CardNova verbindet ein hochwertiges Sammelkarten Erlebnis mit schnellen Filtern, starken Produktkarten und einer klaren Demo Auswahl. Perfekt als Basis für einen professionellen Webshop Prototyp.</p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#shop">Jetzt entdecken</a>
+            <button class="secondary-action" type="button" id="scrollToDrops">Live Drops ansehen</button>
+          </div>
+          <dl class="hero-stats" aria-label="Shop Kennzahlen">
+            <div><dt>2.4k</dt><dd>aktive Listings</dd></div>
+            <div><dt>98%</dt><dd>positive Reviews</dd></div>
+            <div><dt>24h</dt><dd>Drop Alerts</dd></div>
+          </dl>
+        </div>
+        <div class="hero-stage" aria-label="Ausgewaehlte Sammelkarten">
+          <article class="showcase-card showcase-main">
+            <span class="card-chip">Legendary Foil</span>
+            <div class="monster-art dragon"></div>
+            <div class="showcase-info"><h2>Astral Drake</h2><p>Mint, First Wave, Holo</p><strong>129.90 Euro</strong></div>
+          </article>
+          <article class="showcase-card showcase-side one"><span class="card-chip">Rare</span><div class="monster-art sprite"></div><h3>Volt Sprite</h3></article>
+          <article class="showcase-card showcase-side two"><span class="card-chip">Sealed</span><div class="pack-art"></div><h3>Nebula Booster</h3></article>
+        </div>
+      </section>
+
+      <section class="trust-strip" aria-label="Shop Vorteile">
+        <div><strong>Geprüfte Verkäufer</strong><span>Klare Zustandsangaben und transparente Profile.</span></div>
+        <div><strong>Sammlerfreundliche Filter</strong><span>Rarität, Zustand, Typ und Preis sofort sichtbar.</span></div>
+        <div><strong>Schnelle Demo Auswahl</strong><span>Moderne Auswahlleiste als Basis für spätere Shop Logik.</span></div>
+      </section>
+
+      <section class="drops" id="drops">
+        <div class="section-heading"><span class="eyebrow">Live Drops</span><h2>Neue Highlights für Sammler</h2><p>Eine kuratierte Fläche für aktuelle Sets, limitierte Bundles und besondere Singles.</p></div>
+        <div class="drop-grid">
+          <article class="drop-card premium"><span>Collector Drop</span><h3>Nebula Vault Box</h3><p>Limitierte Display Box mit Foil Chance, Sleeves und Bonus Promo.</p><button type="button" data-featured-add="Nebula Vault Box">Auswählen</button></article>
+          <article class="drop-card"><span>Hot Deal</span><h3>Starter Clash Bundle</h3><p>Drei Decks, Token Set und Einsteiger Guide für neue Spieler.</p><button type="button" data-featured-add="Starter Clash Bundle">Bundle ansehen</button></article>
+          <article class="drop-card glass"><span>Market Watch</span><h3>Graded Chase Singles</h3><p>Premium Bereich für bewertete Karten mit Markttrend Anzeige.</p><button type="button" id="focusSingles">Singles ansehen</button></article>
+        </div>
+      </section>
+
+      <section class="shop-section" id="shop">
+        <div class="section-heading shop-heading">
+          <div><span class="eyebrow">Shop</span><h2>CardNova Marketplace</h2><p>Filtere nach Kategorie, Rarität und Suchbegriff. Alle Aktionen laufen lokal im Browser.</p></div>
+          <div class="sort-wrap"><label for="sortSelect">Sortieren</label><select id="sortSelect"><option value="featured">Empfohlen</option><option value="priceLow">Preis aufsteigend</option><option value="priceHigh">Preis absteigend</option><option value="name">Name</option></select></div>
+        </div>
+        <div class="shop-layout">
+          <aside class="filters" aria-label="Produktfilter">
+            <div class="search-box"><label for="searchInput">Suche</label><input id="searchInput" type="search" placeholder="Karte, Set oder Typ suchen"></div>
+            <div class="filter-group"><strong>Kategorie</strong><button class="filter-pill active" type="button" data-filter="all">Alle</button><button class="filter-pill" type="button" data-filter="single">Singles</button><button class="filter-pill" type="button" data-filter="sealed">Sealed</button><button class="filter-pill" type="button" data-filter="bundle">Bundles</button><button class="filter-pill" type="button" data-filter="accessory">Zubehör</button></div>
+            <div class="filter-group rarity-filter"><strong>Rarität</strong><label><input type="checkbox" value="Legendary"> Legendary</label><label><input type="checkbox" value="Ultra Rare"> Ultra Rare</label><label><input type="checkbox" value="Rare"> Rare</label><label><input type="checkbox" value="Sealed"> Sealed</label></div>
+            <div class="filter-note"><strong>Prototyp Feature</strong><p>Später können hier Login, Datenbank, Lagerbestand und ein echtes Shop System angebunden werden.</p></div>
+          </aside>
+          <div class="products-area"><div class="result-bar"><span id="resultCount">0 Produkte</span><button type="button" id="resetFilters">Filter zurücksetzen</button></div><div class="product-grid" id="productGrid" aria-live="polite"></div></div>
+        </div>
+      </section>
+
+      <section class="why" id="why"><div class="section-heading"><span class="eyebrow">Warum CardNova</span><h2>Gemacht für Spieler, Sammler und Shop Betreiber</h2></div><div class="why-grid"><article><span>01</span><h3>Premium Look</h3><p>Dunkles Interface, starke Kontraste und Foil Akzente sorgen für einen hochwertigen Sammler Look.</p></article><article><span>02</span><h3>Demo Logik</h3><p>Auswahl, Mengenänderung, Zwischensumme und Produktdetails sind bereits klickbar.</p></article><article><span>03</span><h3>Erweiterbar</h3><p>Die Struktur ist bewusst einfach gehalten, damit später Backend, CMS oder Shop System folgen können.</p></article></div></section>
+
+      <section class="newsletter" id="community"><div><span class="eyebrow">Community</span><h2>Drop Alerts für neue Sets</h2><p>Ein Formular Mockup für Newsletter, Early Access und Community Updates.</p></div><form id="newsletterForm"><input type="email" placeholder="deine@email.de" required aria-label="E-Mail Adresse"><button type="submit">Benachrichtigen</button></form></section>
+    </main>
+
+    <footer class="footer"><p>CardNova © 2026. TCG Demo Store Prototyp.</p><a href="#top">Nach oben</a></footer>
+  </div>
+
+  <aside class="cart-drawer" id="cartDrawer" aria-hidden="true" aria-label="Auswahl">
+    <div class="cart-panel"><div class="cart-header"><div><span class="eyebrow">Demo Auswahl</span><h2>Deine Auswahl</h2></div><button type="button" id="closeCart" aria-label="Auswahl schließen">×</button></div><div class="cart-items" id="cartItems"></div><div class="cart-summary"><div><span>Zwischensumme</span><strong id="subtotal">0.00 Euro</strong></div><div><span>Demo Versand</span><strong id="shipping">0.00 Euro</strong></div><div class="total"><span>Gesamt</span><strong id="total">0.00 Euro</strong></div><button type="button" id="demoButton">Demo Anfrage anzeigen</button><p>Dies ist ein Frontend Prototyp. Es findet keine echte Bestellung statt.</p></div></div>
+  </aside>
+
+  <div class="modal" id="productModal" aria-hidden="true" role="dialog" aria-modal="true"><div class="modal-card"><button type="button" id="closeModal" aria-label="Produktdetails schließen">×</button><div id="modalContent"></div></div></div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
